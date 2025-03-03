@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy product</title>
+    <style>
+        body{
+            background: gray;
+        }
+        form p{
+            color: white;
+        }
+        #btn-buy{
+            background: orange;
+            height: 30px;
+        }
+        #image {
+            display: none; /* Hide image initially */
+            width: 300px; /* Adjust as needed */
+            margin-top: 10px;
+            border-radius: 14px;
+        }
+        #qr{
+            display: none; /* Hide image initially */
+            width: 300px;
+            height: 300px; /* Adjust as needed */
+            margin-top: 10px;
+            border-radius: 14px;
+        }
+
+        #no{
+            border-radius: 13px;
+        }
+        #message{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <p>Select Your Watch Color:</p>
+        
+        <label>
+          <input type="radio" name="color" value="black" id="black"> Black
+        </label>
+        
+        <label>
+          <input type="radio" name="color" value="blue" id="blue"> Blue
+        </label>
+        
+        <label>
+          <input type="radio" name="color" value="silver" id="silver"> Silver
+        </label>
+      </form>
+      <br>
+      <br>
+      <button id="btn-cart">Add to cart</button>
+      <button id="btn-buy" onclick="showImage()">buy</button>
+      <br>
+      <br>
+      <input type="text" id="no" placeholder="choose no of watches" required>
+      <button id="order" onclick="showNumber()">order</button>
+      <p id="message"></p>
+      <br>
+      <br>
+      
+      <img src="img/watch.webp" alt="smartwatch" id="image">
+      <img src="img/qr.png" alt="qr" id="qr">
+      <button id="now" onclick="pay()">pay now</button>
+      <button id="later" onclick="payLater()">cash on delivery</button>
+      <br>
+      <br>
+      <button id="return" onclick="wapis()">return</button>
+      <script>
+        let black=document.querySelector("#black");
+        black.addEventListener("click", function(){
+            alert("you choose black color for your watch");
+        })
+
+        
+        let blue=document.querySelector("#blue");
+        blue.addEventListener("click", function(){
+            alert("you choose blue color for your watch");
+        })
+
+        
+        let silver=document.querySelector("#silver");
+        silver.addEventListener("click", function(){
+            alert("you choose silver color for your watch");
+        })
+        
+        let buy=document.querySelector("#btn-buy");
+        
+        
+        function showImage() {
+            document.getElementById("image").style.display = "block";
+        }
+        let no=document.querySelector("#no");
+        function showNumber() {
+            let no = document.getElementById("no").value;
+            document.getElementById("message").innerText =`you ordered ${+ no} watches`;
+        }
+let order=document.querySelector("#order");
+        order.addEventListener("click", function(){   
+           let loca=prompt("enter your location");
+           alert("your order will be delivered very fast");
+        })
+        let now =document.querySelector("#now");
+        now.addEventListener("click", function pay(){
+            let money=prompt("from which app");
+            
+            
+                alert("scan the QR code");
+                let QR=document.querySelector("#qr").style.display="block";
+                
+            }
+        )
+
+        let later=document.querySelector("#later");
+        later.addEventListener("click", function payLater(){
+            alert("ok pay after recieving your parsal");
+        })
+        let re=document.querySelector("#return");
+        re.addEventListener("click", function wapis(){
+            let why = prompt("reason why are you returing our product");
+            alert("we are sorry for seding you this defected piece");
+            alert("svan qr code to return");
+            let QR=document.querySelector("#qr").style.display="block";
+        })
+</script>
+</body>
+</html>
