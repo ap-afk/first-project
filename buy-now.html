@@ -42,15 +42,15 @@
         <p>Select Your Watch Color:</p>
         
         <label>
-          <input type="radio" name="color" value="black" id="black"> Black
+          <input type="radio" name="color" value="black" id="black" required> Black
         </label>
         
         <label>
-          <input type="radio" name="color" value="blue" id="blue"> Blue
+          <input type="radio" name="color" value="blue" id="blue" required> Blue
         </label>
         
         <label>
-          <input type="radio" name="color" value="silver" id="silver"> Silver
+          <input type="radio" name="color" value="silver" id="silver" required> Silver
         </label>
       </form>
       <br>
@@ -59,7 +59,7 @@
       <button id="btn-buy" onclick="showImage()">buy</button>
       <br>
       <br>
-      <input type="text" id="no" placeholder="choose no of watches" required>
+      <input type="number" id="no" placeholder="choose no of watches" required>
       <button id="order" onclick="showNumber()">order</button>
       <p id="message"></p>
       <br>
@@ -108,14 +108,16 @@ let order=document.querySelector("#order");
         })
         let now =document.querySelector("#now");
         now.addEventListener("click", function pay(){
-            let money=prompt("from which app");
-            if(money = "paytm" || "bharatPay" || "phonePay" || "fampay" || "googlePay"){
-                alert("scan the QR code");
-                let QR=document.querySelector("#qr").style.display="block";
-            }
-            else{
-            alert("enter a valid app")
-            }
+           let money = prompt("From which app?");
+let validApps = ["paytm", "bharatPay", "phonePay", "fampay", "googlePay"];
+
+if (validApps.includes(money)) {
+    alert("Scan the QR code");
+    document.querySelector("#qr").style.display = "block";
+} else {
+    alert("Enter a valid app");
+}
+
             
                 
                 
@@ -129,8 +131,8 @@ let order=document.querySelector("#order");
         let re=document.querySelector("#return");
         re.addEventListener("click", function wapis(){
             let why = prompt("reason why are you returing our product");
-            alert("we are sorry for seding you this defected piece");
-            alert("svan qr code to return");
+            alert("we are sorry for sending you this defected piece");
+            alert("scan qr code to return");
             let QR=document.querySelector("#qr").style.display="block";
         })
 </script>
