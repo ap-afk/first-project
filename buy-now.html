@@ -55,7 +55,7 @@
       </form>
       <br>
       <br>
-      <button id="btn-cart">Add to cart</button>
+      <button id="btn-cart" onclick="alert("your item added to cart")>Add to cart</button>
       <button id="btn-buy" onclick="showImage()">buy</button>
       <br>
       <br>
@@ -109,10 +109,15 @@ let order=document.querySelector("#order");
         let now =document.querySelector("#now");
         now.addEventListener("click", function pay(){
             let money=prompt("from which app");
-            
-            
+            if(money = "paytm" || "bharatPay" || "phonePay" || "fampay" || "googlePay"){
                 alert("scan the QR code");
                 let QR=document.querySelector("#qr").style.display="block";
+            }
+            else{
+            alert("enter a valid app")
+            }
+            
+                
                 
             }
         )
